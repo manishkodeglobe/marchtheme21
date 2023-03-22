@@ -10,11 +10,16 @@
     {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
-    {{ 'application.js' | asset_url | script_tag }}
+    {{ 'custome.css' | asset_url | stylesheet_tag }}
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {% comment %} {{ 'application.js' | asset_url | script_tag }} {% endcomment %}
   </head>
-  <body>
+  <body class="bg-red-900">
+
+    {% section 'header' %}
     <main role="main">
       {{ content_for_layout }}
     </main>
   </body>
+  {% section 'footer' %}
 </html>
